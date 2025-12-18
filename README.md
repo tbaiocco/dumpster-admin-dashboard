@@ -45,12 +45,12 @@ Your app is ready to be deployed!
 Create a `.env.local` file for local development:
 
 ```env
-VITE_API_URL=http://localhost:3000
+REACT_APP_API_URL=http://localhost:3000
 ```
 
 For production (Railway), set in the Railway dashboard:
 ```env
-VITE_API_URL=https://your-backend.railway.app
+REACT_APP_API_URL=https://your-backend.railway.app
 ```
 
 ## Deployment
@@ -62,7 +62,7 @@ See [RAILWAY_DEPLOY.md](./RAILWAY_DEPLOY.md) for complete deployment instruction
 Quick deploy:
 1. Push to GitHub
 2. Connect repository to Railway
-3. Set `VITE_API_URL` environment variable
+3. Set `REACT_APP_API_URL` environment variable
 4. Deploy automatically
 
 ### Docker

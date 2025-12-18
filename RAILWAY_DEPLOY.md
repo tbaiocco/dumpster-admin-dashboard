@@ -11,7 +11,7 @@
 Set these in Railway dashboard or via CLI:
 
 ### Required
-- `VITE_API_URL` - Your backend API URL (e.g., `https://api.yourdomain.com`)
+- `REACT_APP_API_URL` - Your backend API URL (e.g., `https://api.yourdomain.com`)
 
 ### Optional
 - `PORT` - Port for the container (default: 80, Railway auto-assigns)
@@ -27,7 +27,7 @@ Set these in Railway dashboard or via CLI:
    - **Builder**: Dockerfile (should auto-detect `Dockerfile.prod`)
    - **Branch**: `main` (or your preferred branch)
 5. Add environment variables:
-   - `VITE_API_URL=https://your-backend-api.railway.app`
+   - `REACT_APP_API_URL=https://your-backend-api.railway.app`
 6. Deploy!
 
 Railway will automatically:
@@ -46,7 +46,7 @@ railway login
 railway link
 
 # Set environment variables
-railway variables set VITE_API_URL=https://your-backend-api.railway.app
+railway variables set REACT_APP_API_URL=https://your-backend-api.railway.app
 
 # Deploy
 railway up
@@ -65,7 +65,7 @@ The Dockerfile.prod uses multi-stage build:
 **Stage 1: Builder**
 - Install dependencies
 - Build React app with react-scripts
-- Uses `VITE_API_URL` build arg
+- Uses `REACT_APP_API_URL` build arg
 
 **Stage 2: Production**
 - Nginx 1.25 Alpine (lightweight)
@@ -127,7 +127,7 @@ Already configured:
 
 ### App Shows "Unable to connect to API"
 
-**Cause**: `VITE_API_URL` environment variable not set or incorrect
+**Cause**: `REACT_APP_API_URL` environment variable not set or incorrect
 
 **Solution**: 
 1. Check service variables in Railway
