@@ -14,7 +14,11 @@ Set these in Railway dashboard or via CLI:
 - `REACT_APP_API_URL` - Your backend API URL (e.g., `https://api.yourdomain.com`)
 
 ### Optional
+- `REACT_APP_APP_NAME` - Application name (default: "Clutter.AI Admin Dashboard")
+- `REACT_APP_VERSION` - Application version (default: "1.0.0")
 - `PORT` - Port for the container (default: 80, Railway auto-assigns)
+
+**Note**: All `REACT_APP_*` variables must be set in Railway before deployment, as they are baked into the build at build time.
 
 ## Deployment Methods
 
@@ -26,8 +30,10 @@ Set these in Railway dashboard or via CLI:
 4. **Configure deployment:**
    - **Builder**: Dockerfile (should auto-detect `Dockerfile.prod`)
    - **Branch**: `main` (or your preferred branch)
-5. Add environment variables:
+5. Add environment variables in Railway service settings:
    - `REACT_APP_API_URL=https://your-backend-api.railway.app`
+   - `REACT_APP_APP_NAME=Clutter.AI Admin Dashboard` (optional)
+   - `REACT_APP_VERSION=1.0.0` (optional)
 6. Deploy!
 
 Railway will automatically:
@@ -43,8 +49,10 @@ Railway will automatically:
 railway login
 
 # Link to project (or create new)
-railway link
-
+# Set environment variables (all REACT_APP_* vars are baked into build)
+railway variables set REACT_APP_API_URL=https://your-backend-api.railway.app
+railway variables set REACT_APP_APP_NAME="Clutter.AI Admin Dashboard"
+railway variables set REACT_APP_VERSION=1.0.0
 # Set environment variables
 railway variables set REACT_APP_API_URL=https://your-backend-api.railway.app
 

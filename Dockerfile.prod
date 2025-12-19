@@ -13,9 +13,15 @@ RUN npm ci --only=production
 # Copy source code
 COPY . .
 
-# Build argument for API URL
+# Build arguments for all React environment variables
 ARG REACT_APP_API_URL
+ARG REACT_APP_APP_NAME
+ARG REACT_APP_VERSION
+
+# Set environment variables for build
 ENV REACT_APP_API_URL=${REACT_APP_API_URL}
+ENV REACT_APP_APP_NAME=${REACT_APP_APP_NAME:-"Clutter.AI Admin Dashboard"}
+ENV REACT_APP_VERSION=${REACT_APP_VERSION:-"1.0.0"}
 
 # Build the application
 RUN npm run build
